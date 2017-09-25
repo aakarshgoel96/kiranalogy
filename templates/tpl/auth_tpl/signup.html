@@ -1,0 +1,39 @@
+{% verbatim %}
+<br><br>
+<div class="container w-xxl w-auto-xs" data-ng-controller="SignUpController">
+  <a href class="navbar-brand block m-t">Shopper Stop</a>
+  <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+  <div class="m-b-lg">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        <span class="h4">Register</span>
+      </div>
+      <div class="panel-body">
+        <form id="signForm" name="signForm" class="form-validation" novalidate>
+          <div class="form-group">
+            <input type="text" placeholder="username" class="form-control" data-ng-model="user.username" required>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Full Name" class="form-control" data-ng-model="user.first_name" required>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Mobile Number" class="form-control" data-ng-model="user.phone_number" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email" class="form-control" data-ng-model="user.email" data-ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Password" class="form-control" data-ng-model="user.password1" data-ng-minlength="4" data-ng-maxlength="10" required>
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Confirm Password" class="form-control" data-ng-model="user.password2" data-ng-minlength="4" data-ng-maxlength="10" required>
+          </div>
+          <button id="signButton" class="btn btn-lg btn-success btn-block" data-ng-disabled='signForm.$invalid || signupButtonDisabled' data-ng-click="signup()" button-spinner="loading">
+            <span ng-if="!loading">Create Account</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endverbatim %}
