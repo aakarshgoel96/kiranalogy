@@ -1,0 +1,19 @@
+{% verbatim %}
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<div data-ng-controller="DataAnalysisController" >
+		<h2>Select the category for analysis</h2>
+		<form name="analysisForm" ng-submit="Submit()">
+			<div class="form-group">
+			  <label for="sel1">Select list:</label>
+			  <select class="form-control" id="sel1" ng-model="data" ng-options="category for category in categories" required>
+			  </select>
+			</div>
+		  <button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>	
+	</div>
+	<div class="col-md-2"></div>
+</div>
+{% endverbatim %}

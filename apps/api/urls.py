@@ -18,6 +18,7 @@ router.register('selldetails', stores_viewset.SellDetailViewSet, base_name='sell
 
 urlpatterns = [
     url('^', include(router.urls)),
+    url('analyze_data/$', stores_viewset.AnalysisView.as_view())
 ]
 
 urlpatterns += [

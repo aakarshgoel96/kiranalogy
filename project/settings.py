@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'multiselectfield',
     'apps.api',
-    'apps.core'
+    'apps.core',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -119,9 +119,9 @@ REST_FRAMEWORK = {
         #'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ),
     'DEFAULT_FILTER_BACKENDS': ('rest_framework_filters.backends.DjangoFilterBackend',),
 
 }

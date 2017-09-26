@@ -15,14 +15,14 @@ import plotly as py
 from plotly import __version__
 from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot,offline
 import plotly.graph_objs as go
-
-
+from django.conf import settings
+import os
 def gethtmlanalysis(category):
 
 #category=raw_input()
 
 	
-	df = pd.read_csv('musedb.csv',sep=',',error_bad_lines=False,warn_bad_lines=False)
+	df = pd.read_csv(os.path.join(settings.BASE_DIR, "muse/musedb.csv"),sep=',',error_bad_lines=False,warn_bad_lines=False)
 
 	df_cat=df[df["CATEGORY_DESC"]==category]
 
@@ -38,7 +38,7 @@ def gethtmlanalysis(category):
 
 	figure=go.Figure(data=data,layout=layout)
 
-	offline.plot(figure, filename='plots/cat_sub' + category + '.html')
+	offline.plot(figure, filename=os.path.join(settings.BASE_DIR, "templates/tpl/analysis.html"))
 
 	brand=df_cat["BRAND_DESC"].value_counts()
 	l=brand.sum()
@@ -50,6 +50,4 @@ def gethtmlanalysis(category):
 
 	figure=go.Figure(data=data,layout=layout)
 
-	offline.plot(figure, filename='plots/cat_brand' + category + '.html')
-
-gethtmlanalysis(raw_input())
+	offline.plot(figure, filename=os.path.join(settings.BASE_DIR, "templates/tpl/analysis.html"))

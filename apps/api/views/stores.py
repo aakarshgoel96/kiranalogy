@@ -1,4 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.views import APIView
 
 from apps.api.serializers import stores as stores_serializer
 from apps.core.models import stores as stores_models
@@ -37,3 +38,13 @@ class SellBillViewSet(ModelViewSet):
 class SellDetailViewSet(ModelViewSet):
     queryset = stores_models.SellDetail.objects.all()
     serializer_class = stores_serializer.SellDetailSerializer
+
+from muse.category import gethtmlanalysis
+from rest_framework.response import Response
+
+class AnalysisView(APIView):
+
+    def post(self, request):
+        print request.data
+        gethtmlanalysis(request.data.get('category'))
+        return Response('success')
