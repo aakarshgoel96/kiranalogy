@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('DataAnalysisController',
-  function ($scope, AnalysisService) {
+  function ($scope, AnalysisService, $state) {
     $scope.data = 'HAIR';
     $scope.categories = ['PACKED FOOD', 'HAIR', 'BISCUITS',
 'ICE CREAM',
@@ -80,7 +80,8 @@ app.controller('DataAnalysisController',
 	$scope.Submit = function () {
 		console.log($scope.data)
 		AnalysisService.one('').customPOST({"category": $scope.data}).then(function (success) {
-			console.log(success)
+			console.log(success);
+			$state.go('analysis_data')
 		})
 
 	}

@@ -32,12 +32,22 @@ app.run(
       $stateProvider
         .state('home', {
             url: '',
-            templateUrl: '/tpl/home.html',
+            templateUrl: '/tpl/home.html'
           }
         )
         .state('analysis_data', {
             url: '/analyze-data',
             templateUrl: '/tpl/analysis.html',
+          }
+        )
+          .state('cat-subcat', {
+            url: '/cat-subcat',
+            templateUrl: '/tpl/cat-subcat.html',
+          }
+        )
+          .state('cat-brand', {
+            url: '/cat-brand',
+            templateUrl: '/tpl/cat-brand.html',
           }
         )
         .state('app', {
