@@ -1,4 +1,4 @@
-# kiranology
+# kiranalogy
 
 #Installation
 
@@ -23,17 +23,19 @@ Note: Ubuntu 14.04 or Ubuntu 16.04 LTS is recommended to be used.
 
 5. Now, clone the repository
 
-   https://github.com/JINDALG/kiranology.git
+   https://github.com/aakarshgoel96/kiranalogy.git
 
 5. Move to the project directory.
 
-   cd kiranology
+   cd kiranalogy
+   
+6. Place the file https://drive.google.com/open?id=0B1nE0jfVT8AbOV9jX29DQjdrMzg into muse Folder and rename it with musedb.csv
 
-6. You are all set to run the development server
+7. You are all set to run the development server
 
    python manage.py runserver
 
-7. Visit [http://localhost:8000][localhost] in your browser & you are all set.
+8. Visit [http://localhost:8000][localhost] in your browser & you are all set.
    [localhost]: http://localhost:8000/
    
 We have added the database file(db.sqlite3), So there is not need to setup the database
