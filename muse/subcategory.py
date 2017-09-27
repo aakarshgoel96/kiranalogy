@@ -17,28 +17,16 @@ from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot,of
 import plotly.graph_objs as go
 from django.conf import settings
 import os
-def gethtmlanalysis(category):
+def gethtmlanalysis(subcategory):
 
 #category=raw_input()
 
 	
 	df = pd.read_csv(os.path.join(settings.BASE_DIR, "muse/musedb.csv"),sep=',',error_bad_lines=False,warn_bad_lines=False)
 
-	df_cat=df[df["CATEGORY_DESC"]==category]
+	df_cat=df[df["SUBCATEGORY_DESC"]==subcategory]
 
 	del df
-
-	sub=df_cat["SUBCATEGORY_DESC"].value_counts()
-	l=sub.sum()
-	reg=pd.DataFrame({'labels':sub.index.tolist(), 'values':sub.values.tolist()})
-	sub=sub[sub>(l*0.008)]
-	trace = go.Pie(labels=sub.index.tolist(), values=sub.values.tolist())
-	data=go.Data([trace])
-	layout=go.Layout(title="Top subcategories of  "+category + " with total number of items sold")
-
-	figure=go.Figure(data=data,layout=layout)
-
-	offline.plot(figure, filename=os.path.join(settings.BASE_DIR, "templates/tpl/cat-subcat.html"), auto_open=False)
 
 	brand=df_cat["BRAND_DESC"].value_counts()
 	l=brand.sum()
@@ -46,8 +34,8 @@ def gethtmlanalysis(category):
 	brand=brand[brand>(l*0.008)]
 	trace = go.Pie(labels=brand.index.tolist(), values=brand.values.tolist())
 	data=go.Data([trace])
-	layout=go.Layout(title="Top Brands of  "+category + " with total number of items sold")
+	layout=go.Layout(title="Top Brands of  "+subcategory + " with total number of items sold")
 
 	figure=go.Figure(data=data,layout=layout)
 
-	offline.plot(figure,filename=os.path.join(settings.BASE_DIR, "templates/tpl/cat-brand.html"), auto_open=False)
+	offline.plot(figure,filename=os.path.join(settings.BASE_DIR, "templates/tpl/subcat-brand.html"), auto_open=False)
