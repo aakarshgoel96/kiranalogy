@@ -2,6 +2,10 @@
 
 #Installation
 
+# Full analysis url- http://localhost:8000/gross-analysis/
+
+# Landing page url- http://localhost:8000
+
 #Linux Based Setup For Registration_Module development
 Note: Ubuntu 14.04 or Ubuntu 16.04 LTS is recommended to be used.
 
@@ -37,5 +41,6 @@ Note: Ubuntu 14.04 or Ubuntu 16.04 LTS is recommended to be used.
 
 8. Visit [http://localhost:8000][localhost] in your browser & you are all set.
    [localhost]: http://localhost:8000/
-   
+
+
 We have added the database file(db.sqlite3), So there is not need to setup the database
