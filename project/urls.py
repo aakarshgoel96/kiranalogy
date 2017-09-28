@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.static import serve
 from django.conf import settings
+from django.views.generic import TemplateView
 
 from utils.views import IndexView, TPLView
 
@@ -33,6 +34,7 @@ urlpatterns += [
     url(r'^$', IndexView.as_view()),
     url(r'^tpl/(?P<tpl_name>.*)', TPLView.as_view()),
     url(r'^', include('django.contrib.auth.urls')),
+    url(r'^gross-analysis/$', TemplateView.as_view(template_name='gross-analysis.html')),
 ]
 
 urlpatterns += [
